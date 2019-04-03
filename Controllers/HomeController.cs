@@ -21,10 +21,7 @@ namespace NominaTarea.Controllers
         {
             return View();
         }
-        public ActionResult Informes()
-        {
-            return View();
-        }
+       
 
         public ActionResult CalculoNomina()
         {

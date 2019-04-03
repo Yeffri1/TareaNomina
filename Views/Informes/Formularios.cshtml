@@ -1,0 +1,64 @@
+﻿@model string
+@{
+    ViewBag.Title = "Formularios";
+    Layout = "~/Shared/_Layout";
+}
+
+<h2>Formularios</h2>
+<div class="container">
+
+    <form action="Formularios" method="post" class="form-horizontal">
+        <div class="row">
+            <div class="col-md-12">
+                @if (Model == "EmpleadosActivos")
+                {
+                    <div class="form-group">
+                        <label class="control-label col-md-3">
+                            Nombre:
+                        </label>
+                        <div class="col-md-10">
+                            <input type="text" name="busq" class="form-control" />
+
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label col-md-3">
+                            Departamento:
+                        </label>
+                        <div class="col-md-10">
+                            @Html.DropDownList("IdDpto", (SelectList)ViewBag.Dptos, htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                }
+
+                @if (Model == "EntradasEmpleados")
+                {
+                    <div class="form-group">
+                        <label class="control-label col-md-3">
+                            Mes:
+                        </label>
+                        <div class="col-md-10">
+                            <input type="month" name="Mes" class="form-control" />
+                            @*<select>
+                                <option>Enero</option>
+                                <option>Febrero</option>
+                                <option>Marzo</option>
+                                <option>Abril</option>
+                                <option>Mayo</option>
+                                <option>Junio</option>
+                                <option>Julio</option>
+                                <option>Agosto</option>
+                                <option>Septiembre</option>
+                                <option>Octubre</option>
+                                <option>Noviembre</option>
+                                <option>Diciembre</option>
+                            </select>*@
+                        </div>
+                    </div>
+                }
+
+            </div>
+
+        </div>
+    </form>
+</div>

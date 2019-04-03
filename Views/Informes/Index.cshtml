@@ -1,0 +1,86 @@
+﻿@using System.Data
+@model DataTable
+@{
+    ViewBag.Title = "Informes";
+}
+
+<h2>Informes</h2>
+@if (Model == null)
+{
+<ul class="list-group">
+    <li class="list-group-item">
+        <a href="/Informes/Formularios?informe=EmpleadosActivos">
+            Empleados Activos
+        </a>
+    </li>
+    <li class="list-group-item">
+        <a href="/Informes/Index/EmpleadosInactivos">
+            Empleados Inactivos
+        </a>
+    </li>
+    <li class="list-group-item">
+        <a href="/Informes/Index?informe=Departamentos">
+            Departamentos
+        </a>
+    </li>
+
+    <li class="list-group-item">
+        <a href="/Informes/Index?informe=Cargos">
+            Cargos
+        </a>
+    </li>
+
+    <li class="list-group-item">
+        <a href="/Informes/Formularios?informe=EntradasEmpleados">
+            Entradas Empleados
+        </a>
+    </li>
+
+    <li class="list-group-item">
+        <a href="/Informes/Formularios?informe=SalidasEmpleados">
+            Salidas Empleados
+        </a>
+    </li>
+
+    <li class="list-group-item">
+        <a href="/Informes/Formularios?informe=PermisosEmpleados">
+            Permisos Empleados
+        </a>
+    </li>
+    <li class="list-group-item">
+        <a href="/Informes/Formularios?informe=Nomina">
+            Nomina
+        </a>
+    </li>
+
+</ul>
+}
+else
+{
+    <table border="1" cellpadding="5" class="table table-hover">
+        <thead>
+            <tr>
+                @foreach (System.Data.DataColumn col in Model.Columns)
+                {
+                    <th>@col.Caption</th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (System.Data.DataRow row in Model.Rows)
+            {
+                <tr>
+                    @foreach (var cell in row.ItemArray)
+                    {
+                        <td>@cell.ToString()</td>
+                    }
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+}
+@section Scripts{
+    
+    }
