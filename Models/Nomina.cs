@@ -7,16 +7,17 @@ using System.Web;
 
 namespace NominaTarea.Models
 {
-    [Table("Cargo")]
-    public class Cargo
+    [Table("Nomina")]
+    public class Nomina
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
-        [Required]
-        [StringLength(50,ErrorMessage = "El nombre no tener mas de 50 caracteres")]
-        public string Nombre { get; set; }
 
-        public virtual List<Empleado> Empleados { get; set; }
+        public int Anio { get; set; }
+        public int Mes { get; set; }
+
+        public bool estado { get; set; }
+        public decimal MontoTotal { get; set; }
     }
 }

@@ -132,14 +132,44 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CargoesController.cs" />
+    <Compile Include="Controllers\DepartamentoesController.cs" />
+    <Compile Include="Controllers\EmpleadosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LicenciasController.cs" />
+    <Compile Include="Controllers\PermisosController.cs" />
+    <Compile Include="Controllers\SalidasController.cs" />
+    <Compile Include="Controllers\VacacionesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904030335148_inicio.cs" />
+    <Compile Include="Migrations\201904030335148_inicio.Designer.cs">
+      <DependentUpon>201904030335148_inicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904030337115_prueba.cs" />
+    <Compile Include="Migrations\201904030337115_prueba.Designer.cs">
+      <DependentUpon>201904030337115_prueba.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904030425445_nominaClass.cs" />
+    <Compile Include="Migrations\201904030425445_nominaClass.Designer.cs">
+      <DependentUpon>201904030425445_nominaClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904030438064_identitysalida.cs" />
+    <Compile Include="Migrations\201904030438064_identitysalida.Designer.cs">
+      <DependentUpon>201904030438064_identitysalida.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904030455096_newfeatures.cs" />
+    <Compile Include="Migrations\201904030455096_newfeatures.Designer.cs">
+      <DependentUpon>201904030455096_newfeatures.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Cargo.cs" />
+    <Compile Include="Models\Contexto.cs" />
     <Compile Include="Models\Departamento.cs" />
     <Compile Include="Models\Empleado.cs" />
     <Compile Include="Models\Licencias.cs" />
+    <Compile Include="Models\Nomina.cs" />
     <Compile Include="Models\Permisos.cs" />
     <Compile Include="Models\Salida.cs" />
     <Compile Include="Models\Vacaciones.cs" />
@@ -179,8 +209,46 @@
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\Mantenimientos.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Departamentoes\Create.cshtml" />
+    <Content Include="Views\Departamentoes\Delete.cshtml" />
+    <Content Include="Views\Departamentoes\Details.cshtml" />
+    <Content Include="Views\Departamentoes\Edit.cshtml" />
+    <Content Include="Views\Departamentoes\Index.cshtml" />
+    <Content Include="Views\Cargoes\Create.cshtml" />
+    <Content Include="Views\Cargoes\Delete.cshtml" />
+    <Content Include="Views\Cargoes\Details.cshtml" />
+    <Content Include="Views\Cargoes\Edit.cshtml" />
+    <Content Include="Views\Cargoes\Index.cshtml" />
+    <Content Include="Views\Empleados\Create.cshtml" />
+    <Content Include="Views\Empleados\Delete.cshtml" />
+    <Content Include="Views\Empleados\Details.cshtml" />
+    <Content Include="Views\Empleados\Edit.cshtml" />
+    <Content Include="Views\Empleados\Index.cshtml" />
+    <Content Include="Views\Home\Procesos.cshtml" />
+    <Content Include="Views\Home\Informes.cshtml" />
+    <Content Include="Views\Home\CalculoNomina.cshtml" />
+    <Content Include="Views\Salidas\Create.cshtml" />
+    <Content Include="Views\Salidas\Delete.cshtml" />
+    <Content Include="Views\Salidas\Details.cshtml" />
+    <Content Include="Views\Salidas\Edit.cshtml" />
+    <Content Include="Views\Salidas\Index.cshtml" />
+    <Content Include="Views\Vacaciones\Create.cshtml" />
+    <Content Include="Views\Vacaciones\Delete.cshtml" />
+    <Content Include="Views\Vacaciones\Details.cshtml" />
+    <Content Include="Views\Vacaciones\Edit.cshtml" />
+    <Content Include="Views\Vacaciones\Index.cshtml" />
+    <Content Include="Views\Permisos\Create.cshtml" />
+    <Content Include="Views\Permisos\Delete.cshtml" />
+    <Content Include="Views\Permisos\Details.cshtml" />
+    <Content Include="Views\Permisos\Edit.cshtml" />
+    <Content Include="Views\Permisos\Index.cshtml" />
+    <Content Include="Views\Licencias\Create.cshtml" />
+    <Content Include="Views\Licencias\Delete.cshtml" />
+    <Content Include="Views\Licencias\Details.cshtml" />
+    <Content Include="Views\Licencias\Edit.cshtml" />
+    <Content Include="Views\Licencias\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -197,6 +265,23 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201904030335148_inicio.resx">
+      <DependentUpon>201904030335148_inicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904030337115_prueba.resx">
+      <DependentUpon>201904030337115_prueba.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904030425445_nominaClass.resx">
+      <DependentUpon>201904030425445_nominaClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904030438064_identitysalida.resx">
+      <DependentUpon>201904030438064_identitysalida.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904030455096_newfeatures.resx">
+      <DependentUpon>201904030455096_newfeatures.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

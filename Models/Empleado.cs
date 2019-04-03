@@ -7,6 +7,7 @@ using System.Web;
 
 namespace NominaTarea.Models
 {
+    [Table("Empleado")]
     public class Empleado
     {
         [Key]
@@ -42,10 +43,12 @@ namespace NominaTarea.Models
         public bool  Estado { get; set; }
 
         //LLAVES
+        [Display(Name = "Departamento",Description = "Departamento")]
         public int IdDpto { get; set; }
         [ForeignKey("IdDpto")]
         public virtual Departamento Departamento { get; set; }
 
+        [Display(Name = "Cargo", Description = "Cargo")]
         public int IdCargo { get; set; }
         [ForeignKey("IdCargo")]
         public virtual Cargo Cargo { get; set; }

@@ -13,17 +13,21 @@ namespace NominaTarea.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Mantenimientos()
         {
-            ViewBag.Message = "Your application description page.";
-
+            return View();
+        }
+        public ActionResult Procesos()
+        {
+            return View();
+        }
+        public ActionResult Informes()
+        {
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult CalculoNomina()
         {
-            ViewBag.Message = "Your contact page.";
-
             return View();
         }
     }

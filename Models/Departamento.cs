@@ -7,6 +7,7 @@ using System.Web;
 
 namespace NominaTarea.Models
 {
+    [Table("Departamento")]
     public class Departamento
     {
         [Key]

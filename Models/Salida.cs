@@ -7,12 +7,14 @@ using System.Web;
 
 namespace NominaTarea.Models
 {
+    [Table("Salida")]
     public class Salida
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
+        [Required]
         public int IdEmpleado { get; set; }
 
         [Required]

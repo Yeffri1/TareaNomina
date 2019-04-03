@@ -7,11 +7,15 @@ using System.Web;
 
 namespace NominaTarea.Models
 {
+    [Table("Permisos")]
+
     public class Permisos
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.None)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
+
+        [Required]
         public int IdEmpleado { get; set; }
 
         [Required]
