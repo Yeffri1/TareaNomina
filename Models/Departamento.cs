@@ -18,5 +18,8 @@ namespace NominaTarea.Models
         [Required]
         [StringLength(50, ErrorMessage = "El nombre no tener mas de 50 caracteres")]
         public string Nombre { get; set; }
+
+        public virtual List<Empleado> Empleados { get; set; }
+
     }
 }
