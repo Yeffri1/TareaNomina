@@ -1,7 +1,30 @@
-﻿
+﻿@model NominaTarea.Models.Nomina
 @{
     ViewBag.Title = "Cálculo Nomina";
 }
 
 <h2>Cálculo Nomina</h2>
+
+<table class="table table-bordered">
+   <thead>
+       <tr>
+           <th>Anio</th>
+           <th>Mes</th>
+           <th>Total</th>
+       </tr>
+   </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Model.Anio
+            </td>
+            <td>
+                @Model.Mes
+            </td>
+            <td>
+                @Model.MontoTotal
+            </td>
+        </tr>
+    </tbody>
+</table>
 

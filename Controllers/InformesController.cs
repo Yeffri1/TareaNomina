@@ -30,23 +30,28 @@ namespace NominaTarea.Controllers
             return View(table);
         }
         [HttpGet]
-        public ActionResult Formularios(string informe)
+        public ViewResult Formularios(string informe)
         {
+        
             switch (informe)
             {
                 case "EmpleadosActivos":
                     ViewBag.Dptos = new SelectList(_context.Departamento, "Id", "Codigo");
                     break;
+                case "PermisosEmpleados":
+                    ViewBag.Empleados = new SelectList(_context.Empleado, "Id", "Nombre");
+                    break;
                 default:
                     break;
             }
-            return View(informe);
+            return View("~/Views/Informes/Formularios.cshtml","~/Views/Shared/_Layout.cshtml",informe);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Formularios(int IdDpto,string busq)
+        public ActionResult Formularios(int? IdDpto,string informe, string busq,int? IdEmpleado,int? anio,int? mes)
         {
-            return View();
+            DataTable table  = GetDataTable("proc_informes", informe, busq, IdDpto, mes, anio);
+            return View("~/Views/Informes/Index.cshtml", "~/Views/Shared/_Layout.cshtml", table);
         }
 
         /// <summary>

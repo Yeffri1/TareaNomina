@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NominaTarea.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace NominaTarea.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             return View();
@@ -25,7 +27,18 @@ namespace NominaTarea.Controllers
 
         public ActionResult CalculoNomina()
         {
-            return View();
+            Contexto db = new Contexto();
+            decimal totalPagar = db.Empleado.Where(x1 => x1.Estado == true).Sum(x => x.Salario);
+            Nomina nomina = new Nomina()
+            {
+                MontoTotal = totalPagar,
+                Anio = DateTime.Now.Year,
+                Mes = DateTime.Now.Month,
+                estado = true
+            };
+            db.Nomina.Add(nomina);
+            db.SaveChanges();
+            return View(nomina);
         }
     }
 }
